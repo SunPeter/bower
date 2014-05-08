@@ -1,0 +1,23 @@
+<html ng-app>
+<head>
+	<title>angular.js</title>
+	<script src="angular.min.js"></script>
+	<script>
+		function ngWrap($scope){
+			$scope.items=[
+				{name:"1"},
+				{name:"2"},
+				{name:"3"}
+			];
+		}
+	</script>
+</head>
+<body>
+		<input placeolder="inoup your name" ng-model="name">
+		<h1>{{name}}</h1>
+		<div ng-controller="ngWrap">
+			<h1 ng-repeat="item in items">{{item.name}}  {{$index}}</h1>
+		</div>
+		
+</body>
+</html>
