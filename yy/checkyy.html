@@ -1,0 +1,104 @@
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <title></title> 
+    <style type="text/css">
+    	*{
+    		padding: 0;
+    		margin: 0;
+    	}
+    </style>
+</head>
+<body>
+     <a href="javascript:void(0);" onclick="gotoYYClientChannel(1931,1931);return false;" class="mask png">1931</a>
+</body>
+<script type="text/javascript">
+	var _yyClientInstalled = null;
+var _os =  window.navigator.platform;
+var isWin = (_os == "Win32") || (_os == "Windows");
+var CheckYY={
+  'checkYYClientInstalled':function(){   
+    if (_yyClientInstalled !== null) { // 已检测过
+      return _yyClientInstalled;
+    }
+  
+    if (!isWin) { // 目前没有非windows的YY客户端
+      _yyClientInstalled = false;
+      return false;
+    } 
+    var installed = false,
+      UNDEF = "undefined",
+      OBJECT = "object",
+      YY_CHECKER_NAME = "歪歪",
+      YY_CHECKER_AX = "yy_checker.Checker.1",
+      YY_MIME_TYPE = "application/x-checker",     
+      win = window,
+      nav = navigator;
+    if (typeof nav.plugins != UNDEF && typeof nav.plugins[YY_CHECKER_NAME] == OBJECT) { // non IE
+      var description = nav.plugins[YY_CHECKER_NAME].description;
+      if (description && !(typeof nav.mimeTypes != UNDEF && nav.mimeTypes[YY_MIME_TYPE] && !nav.mimeTypes[YY_MIME_TYPE].enabledPlugin)) {
+        installed = true;
+      }
+    } else if (typeof win.ActiveXObject != UNDEF) { // IE
+      try {
+        var a = new ActiveXObject(YY_CHECKER_AX);
+        installed = true;
+      } catch (e) {}
+    }
+    _yyClientInstalled = installed;
+    return installed;
+  }
+};  
+
+
+  // 进入YY客户端
+function gotoYYClientChannel(topChannelId, subChannelId) {
+  if (checkYYClientInstalled()) {
+    try {
+      var href = "yy://join:room_id=" + topChannelId;
+      if(subChannelId){
+        href += "&sub_room_id=" + subChannelId;
+      }
+      location.href = href;
+    } catch (e) {
+      var webyy = "http://yy.com/#"+topChannelId;
+      window.open(webyy);
+    }
+  } else {
+    var webyy = "http://yy.com/#"+topChannelId;
+    window.open(webyy);
+  }
+}
+
+//检测用户是否安装了客户端
+var _yyClientInstalled = null;
+function checkYYClientInstalled() {
+  if (_yyClientInstalled !== null) { // 已检测过
+    return _yyClientInstalled;
+  } 
+  var installed = false,
+    UNDEF = "undefined",
+    OBJECT = "object",
+    YY_CHECKER_NAME = "歪歪",
+    YY_CHECKER_AX = "yy_checker.Checker.1",
+    YY_MIME_TYPE = "application/x-checker",
+    
+    win = window,
+    nav = navigator;
+  if (typeof nav.plugins != UNDEF && typeof nav.plugins[YY_CHECKER_NAME] == OBJECT) { // non IE
+    var description = nav.plugins[YY_CHECKER_NAME].description;
+    if (description && !(typeof nav.mimeTypes != UNDEF && nav.mimeTypes[YY_MIME_TYPE] && !nav.mimeTypes[YY_MIME_TYPE].enabledPlugin)) {
+      installed = true;
+    }
+  } else if (typeof win.ActiveXObject != UNDEF) { // IE
+    try {
+      var a = new ActiveXObject(YY_CHECKER_AX);
+      installed = true;
+    } catch (e) {}
+  }
+  _yyClientInstalled = installed;
+  return installed;
+}
+</script>
+</html>
